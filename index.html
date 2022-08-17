@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset = "UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />
+    <!-- A-Frame を読み込む -->
+    <script src = "https://aframe.io/releases/1.2.0/aframe.min.js" ></script >
+    <!-- AR.js を読み込む -->
+    <script src = "https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js" ></script >
+    <title >test</title >
+  </head >
+  <body style="margin: 0; overflow: hidden" >
+    <a-scene embedded arjs vr-mode-ui="enabled: false;">
+	    
+      <!-- 3DCGモデルを読み込む -->
+      <a-assets>
+        <a-asset-item id = "Target" src="./asset/Target.glb"></a-asset-item>
+      </a-assets>
+
+      <!-- マーカーの.pattファイルを読み込む -->
+      <a-marker type = "pattern" url="./asset/pattern-Target.patt">
+        <!-- 3Dモデルを呼び出す -->
+        <a-entity gltf-model="#Target" rotation="0 0 0"></a-entity>
+      </a-marker>
+
+      <!-- カメラを追加 -->
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>
